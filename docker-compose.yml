@@ -1,0 +1,27 @@
+
+services:
+  api:
+    build:
+      context: ./backend
+    container_name: task-tracker-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app # Mount source code for live reload
+      - db-data:/app/db/storage # Mount the database folder to persist data
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: task-tracker-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+     - ./frontend:/app # Mount source code for live reload
+     - frontend-node-modules:/app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true # watch file changes
+
+volumes:
+  db-data:
+  frontend-node-modules:
