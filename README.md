@@ -17,13 +17,14 @@ A better alternative to installing Node.js and Python is using a version manager
 
 #### Make
 
-Make by default should be avaialbe on MacOS and Linux. 
+Make by default should be avaialbe on MacOS and Linux.
 
 Run the command:
 
 ```
 make --version
 ```
+
 If you see a version number, you're good to go!
 
 If not you can install it on:
@@ -73,6 +74,8 @@ make build
 make up
 ```
 
+http://localhost:5173/
+
 To the run the database migrations
 
 Run the commands:
@@ -106,6 +109,7 @@ Creates a new task in the system.
 **Endpoint:** `POST /api/tasks`
 
 **Request Example:**
+
 ```json
 {
   "title": "Complete project documentation",
@@ -120,6 +124,7 @@ Creates a new task in the system.
 **Code:** `200 OK`
 
 **Response Body:**
+
 ```json
 {
   "id": 1,
@@ -137,6 +142,7 @@ Creates a new task in the system.
 **Code:** `400 Bad Request`
 
 **Response Body:**
+
 ```json
 {
   "error": "Invalid input",
@@ -152,6 +158,7 @@ Creates a new task in the system.
 ```
 
 **When it occurs:**
+
 - Missing required fields
 - Invalid data types
 - Invalid date format
@@ -163,6 +170,7 @@ Creates a new task in the system.
 **Code:** `500 Internal Server Error`
 
 **Response Body:**
+
 ```json
 {
   "error": "Database error",
@@ -171,6 +179,7 @@ Creates a new task in the system.
 ```
 
 **When it occurs:**
+
 - Database connection issues
 - Constraint violations
 - Transaction failures
@@ -182,6 +191,7 @@ Creates a new task in the system.
 **Code:** `500 Internal Server Error`
 
 **Response Body:**
+
 ```json
 {
   "error": "Server error",
@@ -190,6 +200,7 @@ Creates a new task in the system.
 ```
 
 **When it occurs:**
+
 - Unexpected exceptions
 - Internal server errors
 
@@ -197,12 +208,8 @@ Creates a new task in the system.
 
 ## Status Codes Summary
 
-| Status Code | Meaning |
-|-------------|---------|
-| `200` | Success - Task created successfully |
-| `400` | Bad Request - Invalid input data |
-| `500` | Internal Server Error - Server or database error |
-
-
-
-
+| Status Code | Meaning                                          |
+| ----------- | ------------------------------------------------ |
+| `200`       | Success - Task created successfully              |
+| `400`       | Bad Request - Invalid input data                 |
+| `500`       | Internal Server Error - Server or database error |
