@@ -29,15 +29,17 @@ describe("Home Page", () => {
     expect(screen.getByText("Task Tracker")).toBeInTheDocument();
   });
 
-  it("renders the Create Task button", () => {
+  it("renders the Create and View Task buttons", () => {
     render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>
     );
 
-    const button = screen.getByRole("button", { name: /Create Task/i });
-    expect(button).toBeInTheDocument();
+    const buttonCreate = screen.getByRole("button", { name: /Create Task/i });
+    const buttonView = screen.getByRole("button", { name: /View Task/i });
+    expect(buttonCreate).toBeInTheDocument();
+    expect(buttonView).toBeInTheDocument();
   });
 
   it("navigates to create page when button is clicked", async () => {

@@ -17,3 +17,11 @@ class Task(BaseModel):
         if isinstance(value, str) and value.strip() == "":
             return None
         return value
+
+class TaskUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    status: Optional[str] = None
+    due_date_time: Optional[datetime] = None
+
+    model_config = {"extra": "ignore"}
